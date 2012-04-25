@@ -13,6 +13,7 @@
 @end
 
 @implementation ViewController
+@synthesize label;
 
 - (void)viewDidLoad
 {
@@ -22,6 +23,7 @@
 
 - (void)viewDidUnload
 {
+    [self setLabel:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
 }
@@ -31,4 +33,14 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (IBAction)pushButton:(id)sender {
+    if ([label.text isEqualToString:@""]) {
+        label.text = @"Hellow orld!";
+//        UIButton *but = (UIButton*) sender;
+//        but.titleLabel.text = @"Tap Me Again";
+        [sender setTitle:@"Tap Me Again" forState:UIControlStateNormal];
+    } else {
+        label.text = @"";
+    }
+}
 @end
